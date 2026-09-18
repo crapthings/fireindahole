@@ -90,6 +90,10 @@ export function App () {
       <div ref={hitLabel} className='hit-label' aria-hidden='true'>+1{stats.combo > 1 && <small>{stats.combo} STREAK</small>}</div>
       {dragging && <div className='power-meter' role='meter' aria-label='Throw power' aria-valuemin={0} aria-valuemax={100} aria-valuenow={power}><div><i style={{ width: `${power}%` }} /></div></div>}
       <div className='grain' />
+      <nav className='project-links' aria-label='Creator and projects'>
+        <a href='https://github.com/crapthings' target='_blank' rel='noopener noreferrer' aria-label='crapthings on GitHub (opens in a new tab)'>GitHub <span aria-hidden='true'>↗</span></a>
+        <a href='https://github.com/crapthings/run3d' target='_blank' rel='noopener noreferrer' aria-label='run3d on GitHub (opens in a new tab)'>run3d <span aria-hidden='true'>↗</span></a>
+      </nav>
       {!ready && <LoadingScreen progress={(loadProgress * 2 + Number(sceneReady)) / 3} onComplete={finishLoading} />}
     </main>
   )
