@@ -1,6 +1,22 @@
 # Fire in da Hole
 
-A browser-based 3D physics playground built with React, Three.js, and Vite.
+A playful 3D browser game: flick grenades into a moving target, follow the arc, and enjoy cartoon collision sounds. Built with React Three Fiber, Three.js, and Vite.
+
+**[Play in your browser](https://crapthings.github.io/fireindahole/)**
+
+## Make your own with run3d
+
+Have an idea for a 3D game or interactive experiment? Try **[run3d](https://github.com/crapthings/run3d)**, my JavaScript starter for getting from an idea to an editable 3D scene in one command. It brings together Vite, React Three Fiber, and tools for animation, physics, and creative coding, so you can get straight to building.
+
+With Node.js 24 and pnpm installed:
+
+```sh
+npx @crapthings/run3d my-3d-game
+cd my-3d-game
+pnpm dev
+```
+
+Edit `src/Scene.jsx` to start experimenting. **[Explore run3d and give it a star](https://github.com/crapthings/run3d)** if it helps you build something fun.
 
 ## Development
 
