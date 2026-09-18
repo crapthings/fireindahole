@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root { font-family: Arial, 'Helvetica Neue', sans-serif; color: #272a23; background: #e9e7dd; font-synthesis: none; }
+* { box-sizing: border-box; }
+html, body, #root { width: 100%; height: 100%; overflow: hidden; overscroll-behavior: none; }
+body { margin: 0; }
+.loading-screen { position: fixed; inset: 0; z-index: 100; background: #e9e7dd; display: grid; grid-template-rows: auto 1fr; padding: 36px 44px; opacity: 1; transition: opacity 0.45s ease; cursor: wait; }
+.loading-leaving { opacity: 0; }
+.loading-brand { font-size: 18px; font-weight: 900; letter-spacing: -0.7px; }
+.loading-content { width: min(440px, 100%); align-self: center; justify-self: center; }
+.loading-caption { display: flex; justify-content: space-between; font: 10px monospace; letter-spacing: 1.5px; }
+.loading-counter { font-size: clamp(90px, 16vw, 144px); font-weight: 800; line-height: 1.25; letter-spacing: -7px; font-variant-numeric: tabular-nums; }
+.loading-counter > span { font: 18px monospace; letter-spacing: 0; margin-left: 12px; color: #817568; }
+.loading-track { height: 4px; background: #cbc5b6; overflow: hidden; }
+.loading-track > div { height: 100%; background: #e45329; }
+@media (max-width: 700px) { .loading-screen { padding: 24px 22px; } }
+@media (prefers-reduced-motion: reduce) { .loading-screen { transition: none; } }
+.game { position: fixed; inset: 0; overflow: hidden; isolation: isolate; }
+.playfield { position: absolute; inset: 0; z-index: -1; touch-action: none; cursor: crosshair; }
+.playfield canvas { display: block; }
+.topbar { position: absolute; top: 35px; left: 44px; right: 44px; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+.brand { font-size: 28px; font-weight: 950; letter-spacing: -1.5px; display: flex; align-items: center; gap: 5px; }
+.brand-small { font-size: 10px; width: 14px; line-height: 10px; letter-spacing: -0.3px; }
+.brand-dot { font-size: 11px; align-self: flex-start; margin-top: 4px; }
+.sound-button { background: transparent; border: 1px solid #a6a79a; padding: 11px 14px; font: 10px monospace; letter-spacing: 1px; cursor: pointer; pointer-events: auto; }
+.sound-button:hover { background: #272a23; color: #e9e7dd; }
+.scoreboard { position: absolute; right: 48px; top: 29%; width: 135px; pointer-events: none; }
+.eyebrow { font: 10px monospace; letter-spacing: 2px; }
+.scoreboard strong { display: block; font-size: 100px; line-height: 1.1; font-weight: 800; letter-spacing: -8px; }
+.score-details { border-top: 1px solid #aaa99a; margin-top: 15px; padding-top: 12px; display: flex; flex-direction: column; gap: 9px; font: 10px monospace; letter-spacing: 1px; }
+.score-details span { display: flex; justify-content: space-between; }
+.grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' opacity='.6' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
+.hit-label { position: absolute; pointer-events: none; transform: translate(-50%, -50%); color: #d65b32; font-size: 38px; font-weight: 900; opacity: 0; text-shadow: 0 2px 12px #fff8e9; }
+.hit-label small { display: block; font: 10px monospace; letter-spacing: 2px; }
+.power-meter { position: absolute; left: 50%; bottom: 21%; transform: translateX(-50%); width: 150px; font: 8px monospace; letter-spacing: 2px; pointer-events: none; }
+.power-meter > div { height: 3px; background: #cbc5b6; margin-top: 9px; }
+.power-meter i { display: block; height: 100%; background: #dd653c; transition: width 0.08s; }
+.score-pop { animation: score-pop 0.45s ease-out; }
+@keyframes score-pop { 30% { transform: scale(1.15); color: #dd653c; } }
+@media (max-width: 700px) {
+  .topbar { top: 24px; left: 22px; right: 22px; }
+  .brand { font-size: 23px; }
+  .scoreboard { top: 84px; left: 24px; right: 24px; width: auto; display: flex; align-items: center; gap: 12px; }
+  .scoreboard strong { font-size: 34px; letter-spacing: -2px; }
+  .score-details { margin: 0 0 0 auto; padding: 0; border: 0; width: 82px; gap: 5px; }
+  .eyebrow, .score-details { font-size: 8px; }
+  .power-meter { top: 185px; bottom: auto; }
+}
