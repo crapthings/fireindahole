@@ -93,6 +93,7 @@ export function App () {
       <nav className='project-links' aria-label='Creator and projects'>
         <a href='https://github.com/crapthings' target='_blank' rel='noopener noreferrer' aria-label='crapthings on GitHub (opens in a new tab)'>GitHub <span aria-hidden='true'>↗</span></a>
         <a href='https://github.com/crapthings/run3d' target='_blank' rel='noopener noreferrer' aria-label='run3d on GitHub (opens in a new tab)'>run3d <span aria-hidden='true'>↗</span></a>
+        <a href='https://github.com/crapthings/fireindahole' target='_blank' rel='noopener noreferrer' aria-label='Fire in da Hole source on GitHub (opens in a new tab)'>Source <span aria-hidden='true'>↗</span></a>
       </nav>
       {!ready && <LoadingScreen progress={(loadProgress * 2 + Number(sceneReady)) / 3} onComplete={finishLoading} />}
     </main>

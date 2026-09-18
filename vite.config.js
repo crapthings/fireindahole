@@ -7,6 +7,7 @@ export default defineConfig({
   base: process.env.PAGES_BASE_PATH || '/',
   plugins: [react(), tailwindcss()],
   resolve: {
+    dedupe: ['react', 'react-dom', 'three', '@react-three/fiber'],
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
